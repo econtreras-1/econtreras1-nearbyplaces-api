@@ -10,3 +10,12 @@ let password = process.env.password;
 
 let connectionString =
 `postgres://${username}:${password}@${host}:${port}/${database}`;
+
+let connection = {
+    connectionString: process.env.DATABASE_URL ? process.env.DATABASE_URL : connectionString,
+    ssl : {rejectUnauthorized: false}
+};
+
+const pool = new Pool(connection);
+
+// Methods for calls
