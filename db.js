@@ -19,3 +19,27 @@ let connection = {
 const pool = new Pool(connection);
 
 // Methods for calls
+
+//Add addPlace to Database
+let addPlace = (name, address, image) => {
+    console.log(connectionString)
+    let sql = `insert into mynearbyplaces.businesses(name, image, address) values ($1, $2, $3)`;
+    console.log(sql);
+    return pool.query(sql, [name, image, address])
+    .then(() => console.log('the place was saved'));
+    
+}//Retrieve Places from Database
+let getPlaces = () => {
+    console.log(connectionString)
+    let sql = `select * from mynearbyplaces.businesses`
+    return pool.query(sql)
+    .then(result => result.rows);
+
+//Retrieve Reviews from Database
+let getReviews = () => {
+    console.log(connectionString)
+    let sql = `select * from mynearbyplaces.reviews`
+    return pool.query(sql)
+    .then(result => result.rows);
+}
+}
