@@ -60,5 +60,5 @@ app.post('/editPlace', (request, response) => {
     response.send("Welcome to econtreras-1-mynearbyplaces server side");
  });
 
-
+//Start the Server
 app.listen(port, () => console.log("listening on port " + port))
